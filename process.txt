@@ -1,0 +1,21 @@
+Keep all primus boxes in one github project for simplicity.
+Controlling all of the QGs at the same time.
+- Node 1 : Laptop
+- Node 2 : Dell Computer
+- Node 3 : Work Computer
+- Node 4 : Backup FNY Computer
+
+Backtest Phases
+1) 1 day 1 winning trade (make sure trade is correct)
+2) 1 month 100 trade minimum (make sure all trades are correct, winners and losers)
+3) 3 years 1000 trade minimum (equity curve and worst losers)
+4) Monthly tracking 100 live trade minimum
+
+Test driven -
+Did you eliminate trades?
+Did the cps improve when you did that?
+Is it catch the trades you wish for it to catch?
+
+statistics -
+
+(last 3 year p&l / 3) must be 4 * max down day

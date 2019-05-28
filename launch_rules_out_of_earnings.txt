@@ -1,0 +1,2 @@
+(CurrentDate >= #2019-03-15# AND
+CurrentDate <= #2019-04-14#)

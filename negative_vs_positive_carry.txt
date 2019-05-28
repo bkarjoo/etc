@@ -1,0 +1,74 @@
+
+
+
+Negative Carry : you lose lose lose and then a big win
+Positive Carry : you win win win and then a big loss
+
+we can calculate win-rate
+we can calculate tail-risk
+ 
+
+	•	There are roughly 20 days in a season
+	•	To have a 60% win rate we need 12 positive days
+	•	My momentum earnings strategies have the following
+	◦	40% win rate
+	◦	60% profitable days long + short
+	◦	80% profitable seasons long or short
+	◦	90% profitable seasons long + short
+	◦	200 trades per season long + short
+
+
+The statistic that screws this all up is the 12 positive days (out of 20) per season in which we think "wow this is a consistent strategy", but what does it take to get 12 positive days? It takes 12 very large winners, spread out across 12 days. Each day has roughly 10 trades (linear assumption which we know is not the case) which makes this possible.
+ 
+Add something more to this thought: many momentum strategies on the desk are profitable 30-40% of trades and some only 25%. 
+ 
+Now the question that answers your question: What if 4 of these 12 trades don't happen? What's the daily win rate? 40%. What's the end of season result? Unknown but likely less than we expected.
+ 
+the two numbers that matter for carry are:
+  % of profitable trades
+  ratio of average winner/average loser
+
+  positive carry
+
+    % of profitable trades > 50%
+    average win/average loss *  percent profitable > 0
+
+    Example: $100 avg winner $50 average loser = 2:1,
+      # of winner (40)  # of losers (60)    40% profitable
+      $100 * 40 = $4000 $50 * 60 = $3000    gross = $1000
+
+    Example: $50 avg winner $60 avg loser
+      win rate of 60% -> positive carry
+      $50 * 60 = $3000 $60 * 40 = $2400     gross = -$600
+ 
+'key man risk'. If we have a restaurant that's successful because of an amazing chef and he decides to retire to Bali then the business might be at risk.
+
+'key man risk' in trading,
+ we're relying on one trade to make our season. That's a risk I'm not willing to take.
+
+What happens if you remove the top %50 of winning days?
+What happens if you remove the top %20 of winning trades?
+
+Another analysis: What happens if we remove the top 20% of winners from a strategy, or top 20% of winning days, is the strategy still profitable? This I think is a more true version of whether a strategy is negative carry. If a strategy is profitable after removing the top 50% of winning days that says something. If it's profitable after removing the top 20% of trades that says something just as powerful.
+ 
+When to trade negative carry:
+
+Let's say we calculate our daily carry at $1,000 (from all strategies, 20k/mo)
+and we're presented with a strategy that has $100 negative carry per day and the possibility to make $5,000 once every 20 days (makes $3000 a month)
+At 100 a day we assume a $2000 monthly carry loss against our $20k monthly carry gain from the rest of the portfolio, and the expectation of a $5k day to add to that 18k month. This might be worth it,
+
+two issues:
+
+	•	First, how much are we willing to pay on a per day basis? 100 of 1000 might be ok, 500 of 1000 probably isn't. (10% of our positive carry for negative carry)
+	•	Second, keyman risk - negative carry strategies rely on very few trades to make their profits and offset their losses. Key man (trade) risk becomes a real issue. What if we go 40 days without a winner? We're still net profitable but our attitude might change towards the strategy; maybe we turn it off before the winner comes or we change size. What if we go 60 days without a winner? Now we're no longer profitable and 3x historical in any criteria we've measured in BT is par for the course, not a surprise.
+	◦	!!!Third, too few observations,  any strategy based on few observations, whether it's 10 trades and 9 are profitable or 100 trades and 10 make all the gains, we're making an assumption that an edge exists that might not really be there. So negative carry strategies also carry a high probability we overfit a dataset. This makes it incredibly tough to trade because we expect to lose money and won't know until 100-200 days in if the strategy "works" or if we made assumptions that were incorrect.
+	◦	Fourth, fundamental reason behind the strategy, This is when it helps to have fundamental reasons for backing a strategy, for example a strategy that trades once a month. Maybe we understand the trade itself or maybe we have 10 strategies that are profitable 80% of the time, each with 10 trades a year and each have the same frameworks but different keywords for different trades. We trust the framework (because it works across all strategies) and the fundamentals of each individual strategy and then launch them as a portfolio.
+
+
+The end conclusion (as opposed to the beginning conclusion) is that negative carry strategies pose multiple risks, both from overfitting (and how long it takes to see we've made this mistake, how much that costs, because we can't turn off after 3x historical) and key-trade risk resulting in simply Keynesian survival ('markets can stay irrational longer than we can stay solvent'), and that negative carry strategies are tough to spot. Looking at % profitable trades and testing by removing the top x% of trades should identify strategies that are at risk. The next problem is whether we're willing to be honest with ourselves when we find these strategies.
+
+overfitting
+keyman risk
+tough to spot
+ 
+Hope you have a good weekend.
