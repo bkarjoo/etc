@@ -1,2 +1,98 @@
-(CurrentDate >= #2019-03-15# AND
-CurrentDate <= #2019-04-14#)
+(CurrentDate > #2011-01-01# AND
+CurrentDate < #2011-03-14#) OR
+
+(CurrentDate > #2011-05-17# AND
+CurrentDate < #2011-07-11#) OR
+
+(CurrentDate > #2011-08-16# AND
+CurrentDate < #2011-10-11#) OR
+
+(CurrentDate > #2011-11-15# AND
+CurrentDate < #2012-01-09#) OR
+
+(CurrentDate > #2012-02-21# AND
+CurrentDate < #2012-04-10#) OR
+
+(CurrentDate > #2012-05-17# AND
+CurrentDate < #2012-07-9#) OR
+
+(CurrentDate > #2012-08-16# AND
+CurrentDate < #2012-10-09#) OR
+
+(CurrentDate > #2012-11-15# AND
+CurrentDate < #2013-01-09#) OR
+
+(CurrentDate > #2013-03-01# AND
+CurrentDate < #2013-04-15#) OR
+
+(CurrentDate > #2013-05-22# AND
+CurrentDate < #2013-07-09#) OR
+
+(CurrentDate > #2013-08-15# AND
+CurrentDate < #2013-10-09#) OR
+
+(CurrentDate > #2013-11-22# AND
+CurrentDate < #2014-01-21#) OR
+
+(CurrentDate > #2014-02-28# AND
+CurrentDate < #2014-04-15#) OR
+
+(CurrentDate > #2014-05-15# AND
+CurrentDate < #2014-07-09#) OR
+
+(CurrentDate > #2014-08-16# AND
+CurrentDate < #2014-10-09#) OR
+
+(CurrentDate > #2014-11-22# AND
+CurrentDate < #2015-01-20#) OR
+
+(CurrentDate >  #2015-02-28# AND
+CurrentDate < #2015-04-21#) OR
+
+(CurrentDate >  #2015-05-19# AND
+CurrentDate < #2015-07-15#) OR
+
+(CurrentDate >  #2015-08-18# AND
+CurrentDate < #2015-10-14#) OR
+
+(CurrentDate > #2015-11-13# AND
+CurrentDate < #2016-01-20#) OR
+
+(CurrentDate > #2016-03-04# AND
+CurrentDate < #2016-04-18#) OR
+
+(CurrentDate > #2016-05-13# AND
+CurrentDate < #2016-07-20#) OR
+
+(CurrentDate > #2016-08-18# AND
+CurrentDate < #2016-10-15#) OR
+
+(CurrentDate > #2016-11-15# AND
+CurrentDate < #2017-01-15#) OR
+
+(CurrentDate > #2017-03-15# AND
+CurrentDate < #2017-04-15#) OR
+
+(CurrentDate > #2017-05-15# AND
+CurrentDate < #2017-07-14#) OR
+
+(CurrentDate > #2017-08-18# AND
+CurrentDate < #2017-10-13#) OR
+
+(CurrentDate > #2017-11-17# AND
+CurrentDate < #2018-01-18#) OR
+
+(CurrentDate > #2018-03-02# AND
+CurrentDate < #2018-04-19#) OR
+
+(CurrentDate > #2018-05-12# AND
+CurrentDate < #2018-07-16#) OR
+
+(CurrentDate > #2018-08-13# AND
+CurrentDate < #2018-10-18#) OR
+
+(CurrentDate > #2018-11-16# AND
+CurrentDate < #2019-01-23#) OR
+
+(CurrentDate > #2019-03-14# AND
+CurrentDate < #2019-04-23#)
