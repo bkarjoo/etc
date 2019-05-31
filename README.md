@@ -13,6 +13,10 @@
 ## Preprocessing
 
 - the preprocessing directives are stored in a bat file for easy calls from the command line
+- gcc -E flag is used to say preprocess only
+- -P flag silences meta-data output
+- -o flag specifies the output location 
+- gcc file_name.c -E -o pp/file_name.i -P
 
 ## Box Template
 
