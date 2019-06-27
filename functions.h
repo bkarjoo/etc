@@ -1,4 +1,4 @@
-// keep this open at all times for autocomplete
+//   keep this open at all times for autocomplete
 #define between(x, y, z) y >= x AND y < z
 #define between_(x, y, z) y > x AND y <= z
 #define and2(a,b) a AND b
@@ -38,6 +38,7 @@
 #define avg_open_size(x) AvgOpenPrintSize(x)
 #define avg_volume_till_now(x) (AvgDayVolume(ALL_VENUES, x, NO)/390) * (TimeFromStockOpenSeconds/60)
 #define bid Bid(INSIDE, CURRENT, NO)
+#define cd CurrentDate 
 #define change_from_entry PositionDelta(ALL_VENUES, NO)
 #define unadjusted_close ClosePrice(PRIMARY, P1, NO)
 #define day_bar_close(x, y) DayBar_Close(ALL_VENUES, x, YES, y)
