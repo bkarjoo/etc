@@ -1,4 +1,4 @@
-//   keep this open at all times for autocomplete
+// keep this open at all times for autocomplete
 #define between(x, y, z) y >= x AND y < z
 #define between_(x, y, z) y > x AND y <= z
 #define and2(a,b) a AND b
@@ -22,9 +22,6 @@
 #define or5(a,b,c,d,e) (a OR b OR c OR d OR e)
 #define or6(a,b,c,d,e,f) (a OR b OR c OR d OR e OR f)
 //
-#define AM * 60
-#define PM * 60 + 720
-#define MINUTES * 60
 #define and AND
 #define or OR
 #define not NOT
@@ -38,7 +35,7 @@
 #define avg_open_size(x) AvgOpenPrintSize(x)
 #define avg_volume_till_now(x) (AvgDayVolume(ALL_VENUES, x, NO)/390) * (TimeFromStockOpenSeconds/60)
 #define bid Bid(INSIDE, CURRENT, NO)
-#define cd CurrentDate 
+#define cd CurrentDate
 #define change_from_entry PositionDelta(ALL_VENUES, NO)
 #define unadjusted_close ClosePrice(PRIMARY, P1, NO)
 #define day_bar_close(x, y) DayBar_Close(ALL_VENUES, x, YES, y)
@@ -136,6 +133,7 @@
 #define pre_mkt_price day_bar_close( 1, '08:00-09:26')
 #define spy_premkt_perc_chg ((SPY_n(DayBar_Close(ALL_VENUES, 1, YES, '08:00-09:26'))-SPY_n(close))/SPY_n(close))
 #define spy_adjusted_close (close * (1 + spy_premkt_perc_chg))
+#define spread ask - bid
 // nested ifs
 #define if IF
 #define if2(x, y, x2, y2, z) IF(x, y, IF(x2, y2, z))
