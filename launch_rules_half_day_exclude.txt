@@ -1,0 +1,21 @@
+
+NOT (CurrentDate = #2011-11-25#) AND
+NOT (CurrentDate = #2012-07-03#) AND
+NOT (CurrentDate = #2012-11-23#) AND
+NOT (CurrentDate = #2012-12-24#) AND
+NOT (CurrentDate = #2013-07-03#) AND
+NOT (CurrentDate = #2013-11-29#) AND
+NOT (CurrentDate = #2013-12-24#) AND
+NOT (CurrentDate = #2014-07-03#) AND
+NOT (CurrentDate = #2014-11-28#) AND
+NOT (CurrentDate = #2014-12-24#) AND
+NOT (CurrentDate = #2014-12-25#) AND
+NOT (CurrentDate = #2015-11-27#) AND
+NOT (CurrentDate = #2015-12-24#) AND
+NOT (CurrentDate = #2016-11-25#) AND
+NOT (CurrentDate = #2017-07-03#) AND
+NOT (CurrentDate = #2017-11-24#) AND
+NOT (CurrentDate = #2018-07-03#) AND
+NOT (CurrentDate = #2018-11-23#) AND
+NOT (CurrentDate = #2018-12-24#) AND
+NOT (CurrentDate = #2019-07-03#)
