@@ -38,6 +38,8 @@
 #define cd CurrentDate
 #define change_from_entry PositionDelta(ALL_VENUES, NO)
 #define unadjusted_close ClosePrice(PRIMARY, P1, NO)
+// takes PERIOD_7 14 20 50 100 200
+#define SMA_daily(x) SMAStock(ALL_VENUES, NO, DAILY, x, CURRENT)
 #define day_bar_close(x, y) DayBar_Close(ALL_VENUES, x, YES, y)
 #define day_bar_low(x, y) DayBar_Low(ALL_VENUES, x, YES, y)
 #define day_bar_high(x, y) DayBar_High(ALL_VENUES, x, YES, y)
@@ -64,6 +66,11 @@
 #define ETF EXCHANGE_TRADED_FUND
 #define ETN EXCHANGE_TRADED_NOTE
 #define execution ExecutionPrice
+#define exchange(x) PrimaryExchange(x)
+#define imbalance_buy_vol(x) ImbalanceBuyVolume(x)
+#define imbalance_sell_vol(x) ImbalanceSellVolume(x)
+#define imbalance_paired_vol ImbPair
+#define imbalance_at(x) ImbalanceAt(x)
 #define instrument_type(x) IsInstrumentType(x)
 #define is_halted IsHalt
 #define is_hard_to_borrow IsHardToBorrow
@@ -71,6 +78,9 @@
 #define minimum_days_from_ipo(x) (DaysFromIPO > x OR DaysFromIPO < 0)
 #define minute_high(x) MinuteHigh(ALL_VENUES, x, CURRENT, NO, False)
 #define minute_low(x) MinuteLow(ALL_VENUES, x, CURRENT, NO, False)
+// take minute and P1-P5
+#define minute_high_prv(x, y) MinuteHigh(ALL_VENUES, x, y, NO, False)
+#define minute_low_prv(x, y) MinuteLow(ALL_VENUES, x, y, NO, False)
 #define minute_range(x) (MinuteHigh(ALL_VENUES, x, CURRENT, NO, False) - MinuteLow(ALL_VENUES, x, CURRENT, NO, False))
 #define minute_high_I_prv(x, y) MinuteHigh_I(ALL_VENUES, x, y, NO, False)
 #define minute_low_I_prv(x, y) MinuteLow_I(ALL_VENUES, x, y, NO, False)
@@ -90,9 +100,12 @@
 #define new_low NewDayLow(1, NO)
 #define open OpenPrice(PRIMARY, CURRENT, NO)
 #define post_close_volume DayBar_VolumeP(ALL_VENUES, 1, YES, '16:05-19:59', P1)
+#define position_count_open PositionCount(OPEN)
 #define pre_mkt_perc_chg ((day_bar_close(1, '08:00-09:26') - close)/close)
 #define pre_mkt_volume DayBar_Volume(ALL_VENUES, 1, YES, '04:00-09:27')
 #define price_delta(x) PriceDelta(ALL_VENUES, x, NO)
+// formula, period 0tick else minute, top x, validity margin
+#define rank(a,b,c,d) IsInRanking(a,b,c,d)
 #define time_minute TickTime
 #define time_sec TickTimeSeconds
 #define time_in_position_sec time_sec - entry_time_sec
@@ -101,20 +114,30 @@
 #define time_from_open_minutes (TimeFromStockOpenSeconds/60)
 #define volume(x) DayVolume(ALL_VENUES, 1, x, NO)
 // news
-#define horizon_earnings EarningsNewsEvent(News_Current,ACBO,True,Any)
+#define general_news GeneralNews(News_Current, ACBO, AnySentiment, AnyGeneralNewsType)
+// horizon_earnings takes ACBO, AfterClose BeforeOpen and True False
+#define horizon_earnings(x, y) EarningsNewsEvent(News_Current,x,y,Any)
 #define source3_earnings Source3(News_Current, ACBO, AnySentiment, Earnings)
-#define has_earnings (horizon_earnings or source3_earnings)
+#define has_earnings (horizon_earnings(ACBO, True) or source3_earnings)
 #define has_earnings_AC (EarningsNewsEvent(News_P1, AfterClose, True, Any) or Source3(News_P1, AfterClose, AnySentiment, Earnings))
 #define has_earnings_BO (EarningsNewsEvent(News_Current, BeforeOpen, True,  Any) or Source3(News_Current, BeforeOpen, AnySentiment, Earnings))
 #define option_news Option_News
+#define ns(x) NewsSearch(News_Current, ACBO, Source4, AnyGeneralNewsType, AnySentiment, SummaryAndDetails, x)
 #define managment_change Mgmt_Changes
 #define s3(x) Source3(News_Current, ACBO, AnySentiment, x)
+// take ACBO
+#define conference_call(x) ConferenceCall(News_Current, x, Any)
 #define conference_call_mkt_hrs ConferenceCall(News_Current, MarketHours, Any)
-#define briefing_news StockNewsEvent(News_Current, ACBO, True)
+
+// briefing_news takes True or False
+#define briefing_news(x) StockNewsEvent(News_Current, ACBO, x)
 #define source3_news Source3(News_Current, ACBO, AnySentiment, AnyNewsType)
-#define fly_news StockNews(News_Current, ACBO, AnySentiment, AnyNewsType)
+// takes ACBO ...
+#define fly_news(x) StockNews(News_Current, x, AnySentiment, AnyNewsType)
 #define has_news (source3_news or fly_news or briefing_news)
-#define has_no_news (NOT has_news)
+#define has_no_news (not general_news and briefing_news(False) and horizon_earnings(ACBO, False) and not trade_news(ACBO) and not fly_news(ACBO) and not conference_call(ACBO))
+// trade_news was discontinued OCT 2018, so just use for back testing
+#define trade_news(x) TradeNews(News_Current, x, AnySentiment, AnyNewsType)
 
 // functions of functions
 #define ref_stock_n(x, y) RefStockNumericValue(x, y)
