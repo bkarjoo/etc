@@ -26,6 +26,8 @@
 #define or OR
 #define not NOT
 #define close AdjustedClosePrice(P1)
+// takes P1 to P5
+#define close_prv(x) AdjustedClosePrice(x)
 #define ask Ask(INSIDE, CURRENT, NO)
 #define adr(x) AvgDailyRange(ALL_VENUES, x, NO)
 #define adv(x) AvgDayVolume(ALL_VENUES, x, NO)
