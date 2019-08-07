@@ -103,7 +103,7 @@
 #define open OpenPrice(PRIMARY, CURRENT, NO)
 #define post_close_volume DayBar_VolumeP(ALL_VENUES, 1, YES, '16:05-19:59', P1)
 #define position_count_open PositionCount(OPEN)
-#define pre_mkt_perc_chg ((day_bar_close(1, '08:00-09:26') - close)/close)
+#define pre_mkt_perc_chg ((day_bar_close(1, '08:00-09:27') - close)/close)
 #define pre_mkt_volume DayBar_Volume(ALL_VENUES, 1, YES, '04:00-09:27')
 #define price_delta(x) PriceDelta(ALL_VENUES, x, NO)
 // formula, period 0tick else minute, top x, validity margin
@@ -159,10 +159,10 @@
 #define SPY_n(x) RefStockNumericValue('SPY', x)
 #define USO_n(x) RefStockNumericValue('USO', x)
 
-#define pre_mkt_high day_bar_high( 1, '08:00-09:26')
-#define pre_mkt_low day_bar_low( 1, '08:00-09:26')
-#define pre_mkt_price day_bar_close( 1, '08:00-09:26')
-#define spy_premkt_perc_chg ((SPY_n(DayBar_Close(ALL_VENUES, 1, YES, '08:00-09:26'))-SPY_n(close))/SPY_n(close))
+#define pre_mkt_high day_bar_high( 1, '08:00-09:27')
+#define pre_mkt_low day_bar_low( 1, '08:00-09:27')
+#define pre_mkt_price day_bar_close( 1, '08:00-09:27')
+#define spy_premkt_perc_chg ((SPY_n(DayBar_Close(ALL_VENUES, 1, YES, '08:00-09:27'))-SPY_n(close))/SPY_n(close))
 #define spy_adjusted_close (close * (1 + spy_premkt_perc_chg))
 #define spread ask - bid
 // nested ifs
