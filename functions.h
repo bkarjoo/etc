@@ -21,7 +21,7 @@
 #define or4(a,b,c,d) (a OR b OR c OR d)
 #define or5(a,b,c,d,e) (a OR b OR c OR d OR e)
 #define or6(a,b,c,d,e,f) (a OR b OR c OR d OR e OR f)
-//
+///
 #define and AND
 #define or OR
 #define not NOT
@@ -101,6 +101,7 @@
 #define new_high NewDayHigh(1, NO)
 #define new_low NewDayLow(1, NO)
 #define open OpenPrice(PRIMARY, CURRENT, NO)
+#define open_prv(x) OpenPrice(PRIMARY, x, NO)
 #define post_close_volume DayBar_VolumeP(ALL_VENUES, 1, YES, '16:05-19:59', P1)
 #define position_count_open PositionCount(OPEN)
 #define pre_mkt_perc_chg ((day_bar_close(1, '08:00-09:27') - close)/close)
