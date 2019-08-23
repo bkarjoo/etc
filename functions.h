@@ -29,6 +29,7 @@
 // takes P1 to P5
 #define close_prv(x) AdjustedClosePrice(x)
 #define ask Ask(INSIDE, CURRENT, NO)
+#define ask_pre_mkt Ask(INSIDE, CURRENT, YES)
 #define adr(x) AvgDailyRange(ALL_VENUES, x, NO)
 #define adv(x) AvgDayVolume(ALL_VENUES, x, NO)
 #define atr(x) ATRStock(ALL_VENUES, NO, DAILY, x, CURRENT)
@@ -37,6 +38,7 @@
 #define avg_open_size(x) AvgOpenPrintSize(x)
 #define avg_volume_till_now(x) (AvgDayVolume(ALL_VENUES, x, NO)/390) * (TimeFromStockOpenSeconds/60)
 #define bid Bid(INSIDE, CURRENT, NO)
+#define bid_pre_mkt Bid(INSIDE, CURRENT, YES)
 #define cd CurrentDate
 #define change_from_entry PositionDelta(ALL_VENUES, NO)
 #define unadjusted_close ClosePrice(PRIMARY, P1, NO)
@@ -168,7 +170,7 @@
 
 #define pre_mkt_high day_bar_high( 1, '08:00-09:27')
 #define pre_mkt_low day_bar_low( 1, '08:00-09:27')
-#define pre_mkt_range (day_bar_high( 1, '08:00-09:27') - day_bar_low( 1, '08:00-09:27'))
+#define pre_mkt_range pre_mkt_high - pre_mkt_low
 #define pre_mkt_price day_bar_close( 1, '08:00-09:27')
 #define spy_premkt_perc_chg ((SPY_n(DayBar_Close(ALL_VENUES, 1, YES, '08:00-09:27'))-SPY_n(close))/SPY_n(close))
 #define spy_adjusted_close (close * (1 + spy_premkt_perc_chg))
