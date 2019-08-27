@@ -85,6 +85,7 @@
 #define is_halted IsHalt
 #define is_hard_to_borrow IsHardToBorrow
 #define last Last(ALL_VENUES,CURRENT,NO)
+#define last_pre_mkt Last(ALL_VENUES,CURRENT,YES)
 #define minimum_days_from_ipo(x) (DaysFromIPO > x OR DaysFromIPO < 0)
 #define minute_high(x) MinuteHigh(ALL_VENUES, x, CURRENT, NO, False)
 #define minute_low(x) MinuteLow(ALL_VENUES, x, CURRENT, NO, False)
