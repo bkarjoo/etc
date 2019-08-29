@@ -1,4 +1,5 @@
 // keep this open at all times for autocomplete
+// Autofill keywords PRIMUS_AEL TIF_OPENING BUY SELL SHORT LIMIT SECONDS OPG CSFB PlainVanilla
 #define between(x, y, z) y >= x AND y < z
 #define between_(x, y, z) y > x AND y <= z
 #define and2(a,b) a AND b
@@ -21,7 +22,6 @@
 #define or4(a,b,c,d) (a OR b OR c OR d)
 #define or5(a,b,c,d,e) (a OR b OR c OR d OR e)
 #define or6(a,b,c,d,e,f) (a OR b OR c OR d OR e OR f)
-///
 #define and AND
 #define or OR
 #define not NOT
@@ -87,18 +87,18 @@
 #define last Last(ALL_VENUES,CURRENT,NO)
 #define last_pre_mkt Last(ALL_VENUES,CURRENT,YES)
 #define minimum_days_from_ipo(x) (DaysFromIPO > x OR DaysFromIPO < 0)
-#define minute_high(x) MinuteHigh(ALL_VENUES, x, CURRENT, NO, False)
-#define minute_low(x) MinuteLow(ALL_VENUES, x, CURRENT, NO, False)
+#define minute_high(x) MinuteHigh(ALL_VENUES, x, CURRENT, NO, True)
+#define minute_low(x) MinuteLow(ALL_VENUES, x, CURRENT, NO, True)
 // take minute and P1-P5
-#define minute_high_prv(x, y) MinuteHigh(ALL_VENUES, x, y, NO, False)
-#define minute_low_prv(x, y) MinuteLow(ALL_VENUES, x, y, NO, False)
-#define minute_range(x) (MinuteHigh(ALL_VENUES, x, CURRENT, NO, False) - MinuteLow(ALL_VENUES, x, CURRENT, NO, False))
-#define minute_high_I_prv(x, y) MinuteHigh_I(ALL_VENUES, x, y, NO, False)
-#define minute_low_I_prv(x, y) MinuteLow_I(ALL_VENUES, x, y, NO, False)
+#define minute_high_prv(x, y) MinuteHigh(ALL_VENUES, x, y, NO, True)
+#define minute_low_prv(x, y) MinuteLow(ALL_VENUES, x, y, NO, True)
+#define minute_range(x) (minute_high(x) - minute_low(x))
+#define minute_high_I_prv(x, y) MinuteHigh_I(ALL_VENUES, x, y, NO, True)
+#define minute_low_I_prv(x, y) MinuteLow_I(ALL_VENUES, x, y, NO, True)
 #define minute_high_I_prv_dis(x, y) MinuteHigh_I(ALL_VENUES, x, y, NO, True)
 #define minute_low_I_prv_dis(x, y) MinuteLow_I(ALL_VENUES, x, y, NO, True)
-#define higher_lows_P1_P5(x) MinuteLow_I(ALL_VENUES, x, P4, NO, False) > MinuteLow_I(ALL_VENUES, x, P5, NO, False) AND MinuteLow_I(ALL_VENUES, x, P3, NO, False) > MinuteLow_I(ALL_VENUES, x, P4, NO, False) AND MinuteLow_I(ALL_VENUES, x, P2, NO, False) > MinuteLow_I(ALL_VENUES, x, P3, NO, False) AND MinuteLow_I(ALL_VENUES, x, P1, NO, False) > MinuteLow_I(ALL_VENUES, x, P2, NO, False)
-#define lower_highs_P1_P5(x) MinuteHigh_I(ALL_VENUES, x, P4, NO, False) < MinuteHigh_I(ALL_VENUES, x, P5, NO, False) AND MinuteHigh_I(ALL_VENUES, x, P3, NO, False) < MinuteHigh_I(ALL_VENUES, x, P4, NO, False) AND MinuteHigh_I(ALL_VENUES, x, P2, NO, False) < MinuteHigh_I(ALL_VENUES, x, P3, NO, False) AND MinuteHigh_I(ALL_VENUES, x, P1, NO, False) < MinuteHigh_I(ALL_VENUES, x, P2, NO, False)
+#define higher_lows_P1_P5(x) MinuteLow_I(ALL_VENUES, x, P4, NO, True) > MinuteLow_I(ALL_VENUES, x, P5, NO, True) AND MinuteLow_I(ALL_VENUES, x, P3, NO, True) > MinuteLow_I(ALL_VENUES, x, P4, NO, True) AND MinuteLow_I(ALL_VENUES, x, P2, NO, True) > MinuteLow_I(ALL_VENUES, x, P3, NO, True) AND MinuteLow_I(ALL_VENUES, x, P1, NO, True) > MinuteLow_I(ALL_VENUES, x, P2, NO, True)
+#define lower_highs_P1_P5(x) MinuteHigh_I(ALL_VENUES, x, P4, NO, True) < MinuteHigh_I(ALL_VENUES, x, P5, NO, True) AND MinuteHigh_I(ALL_VENUES, x, P3, NO, True) < MinuteHigh_I(ALL_VENUES, x, P4, NO, True) AND MinuteHigh_I(ALL_VENUES, x, P2, NO, True) < MinuteHigh_I(ALL_VENUES, x, P3, NO, True) AND MinuteHigh_I(ALL_VENUES, x, P1, NO, True) < MinuteHigh_I(ALL_VENUES, x, P2, NO, True)
 #define minute_high_ext_dv(x) MinuteHigh(ALL_VENUES, x, CURRENT, YES, True)
 #define minute_low_ext_dv(x) MinuteLow(ALL_VENUES, x, CURRENT, YES, True)
 #define minute_range_ext_dv(x) (MinuteHigh(ALL_VENUES, x, CURRENT, YES, True) - MinuteLow(ALL_VENUES, x, CURRENT, YES, True))
@@ -131,6 +131,7 @@
 #define horizon_earnings(x, y) EarningsNewsEvent(News_Current,x,y,Any)
 #define source3_earnings Source3(News_Current, ACBO, AnySentiment, Earnings)
 #define has_earnings (horizon_earnings(ACBO, True) or source3_earnings)
+#define has_earnings_prv ( EarningsNewsEvent(News_P1, ACBO, True, Any)  or  Source3(News_P1, ACBO, AnySentiment, Earnings))
 #define has_earnings_AC (EarningsNewsEvent(News_P1, AfterClose, True, Any) or Source3(News_P1, AfterClose, AnySentiment, Earnings))
 #define has_earnings_BO (EarningsNewsEvent(News_Current, BeforeOpen, True,  Any) or Source3(News_Current, BeforeOpen, AnySentiment, Earnings))
 #define option_news Option_News
@@ -173,6 +174,10 @@
 #define pre_mkt_low day_bar_low( 1, '08:00-09:27')
 #define pre_mkt_range pre_mkt_high - pre_mkt_low
 #define pre_mkt_price day_bar_close( 1, '08:00-09:27')
+#define post_mkt_high DayBar_HighP(ALL_VENUES, 1, YES, '16:00-20:00', P1)
+#define post_mkt_low DayBar_LowP(ALL_VENUES, 1, YES, '16:00-20:00', P1)
+#define post_mkt_range (post_mkt_high - post_mkt_low)
+#define post_mkt_close DayBar_CloseP(ALL_VENUES, 1, YES, '16:00-20:00', P1)
 #define spy_premkt_perc_chg ((SPY_n(DayBar_Close(ALL_VENUES, 1, YES, '08:00-09:27'))-SPY_n(close))/SPY_n(close))
 #define spy_adjusted_close (close * (1 + spy_premkt_perc_chg))
 #define spread ask - bid
