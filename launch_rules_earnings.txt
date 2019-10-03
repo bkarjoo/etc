@@ -96,3 +96,6 @@ CurrentDate <= #2019-03-14#) OR
 
 (CurrentDate >= #2019-04-23# AND
 CurrentDate <= #2019-05-17#)
+
+(CurrentDate >= #2019-07-16# AND
+CurrentDate <= #2019-08-13#) OR
