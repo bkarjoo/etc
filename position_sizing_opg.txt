@@ -1,19 +1,7 @@
-IF(
-       IF(500/ (2*AvgDailyRange(ALL_VENUES, 20, NO)) > 0.1* AvgOpenPrintSize(10), 0.1* AvgOpenPrintSize(10), 500/ (2*AvgDailyRange(ALL_VENUES, 20, NO)))
-       >
-       2000,
-       2000,
-       IF(500/ (2*AvgDailyRange(ALL_VENUES, 20, NO)) > 0.1* AvgOpenPrintSize(10), 0.1* AvgOpenPrintSize(10), 500/ (2*AvgDailyRange(ALL_VENUES, 20, NO)))
-    )
-
-min4(
-500 / (2*adr(20))
+min3(
+500 / (1 * adr(20))
 ,
-0.1 * avg_open_size(10)
+.1 * avg_open_size(10)
 ,
 2000
-,
-10000 * close
-,
-.01 * adv(20)
 )
