@@ -242,6 +242,7 @@
 #define source3_news Source3(News_Current, ACBO, AnySentiment, AnyNewsType)
 // takes ACBO ...
 #define fly_news(x) StockNews(News_Current, x, AnySentiment, AnyNewsType)
+#define syndicate_news(x) StockNews(News_Current, x, AnySentiment, Syndicate)
 #define has_news (source3_news or fly_news or briefing_news)
 #define has_no_news (not general_news and briefing_news(False) and horizon_earnings(ACBO, False) and not trade_news(ACBO) and not fly_news(ACBO) and not conference_call(ACBO))
 // trade_news was discontinued OCT 2018, so just use for back testing
